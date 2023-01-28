@@ -41,11 +41,15 @@ SELECT * FROM urun;
 
 -- 'LG' firmasinda calisan 'Ali Can'in ismini 'Veli Can' olarak degistiriniz.
 
+
 update tedarik
 set irtibat= 'Veli Can'
 where isim='LG';
 
 -- Ali Can'in aldigi urunun ismini Apple olarak degistirin
+
+
+
 
 update urun                                           
 set urun_isim='apple'
@@ -66,6 +70,7 @@ a) Urun tablosundan Ali Can'in aldigi urunun ismini,
 tedarik tablosunda irtibat Merve Temiz olan 
 sirketin ismi ile degistirin. */
 
+
 update urun
 set urun_isim= (select isim 
 				from tedarik
@@ -79,6 +84,7 @@ set urun_isim= (select isim
 b) TV satin alan musterinin ismini, 
 IBM'in irtibat'i ile degistirin.
 -------------------------------------------------------------------------*/
+
 
 update urun 
 set musteri_isim=( select irtibat 
@@ -164,6 +170,8 @@ select *from puanlar;
 5) Tum cocuklarin gradelerini puanlar tablosundaki yazili notlarini ile update edin. 
 --------------------------------------------------------------------------*/
 
+
+
 update cocuklar 
 set grade=( select yazili_notu
              from puanlar
@@ -179,6 +187,10 @@ set grade=( select yazili_notu
 6) Ismi Kemal Yasa olan ogrencinin grade'ini puanlar tablosundaki 
 ogrenci id'si 128 olan yazili notu ile update edin. 
 --------------------------------------------------------------------------*/
+
+
+
+
 
 update cocuklar
 set grade=(select yazili_notu
@@ -201,6 +213,7 @@ where ders_adi='Fizik';
 8) Ali Can'in grade'ini, 124 ogrenci_id'li yazili_notu ile guncelleyin.
 --------------------------------------------------------------------------*/
 
+
 update cocuklar
 set grade=( select yazili_notu
             from puanlar
@@ -212,6 +225,7 @@ where isim='Ali Can';
 9) Ders adi Kimya olan yazili notlarini Rumeysa Aydin'in 
 grade'i ile guncelleyin.
 --------------------------------------------------------------------------*/
+              
 
 update puanlar
 set yazili_notu=( select grade
@@ -223,7 +237,7 @@ where ders_adi='Kimya';
 10) Ders adi tarih olan yazili notlarini Resul Can'in 
 grade'i ile guncelleyin.
 --------------------------------------------------------------------------*/
-
+           
 update puanlar 
 set yazili_notu=( select grade
                   from cocuklar
@@ -262,6 +276,8 @@ INSERT INTO mart_satislar VALUES (20, 'Hatice', 'Toyota',60000);
 select * from mart_satislar;
 
 -- 1) Ismi hatice olan musterinin urun_id'sini 30,urun_isim'ini Ford yapin
+
+
 
 update mart_satislar
 set urun_id=30, urun_isim='Ford'
